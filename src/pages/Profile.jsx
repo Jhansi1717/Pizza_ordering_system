@@ -10,6 +10,15 @@ export default function Profile() {
   const [veg, setVeg] = useState(85);
   const [crust, setCrust] = useState(78);
 
+  const [userName, setUserName] = useState(localStorage.getItem('user_name') || "Guest User");
+  const [userPhone, setUserPhone] = useState(localStorage.getItem('user_phone') || "+91 9172076535");
+  const [isEditingName, setIsEditingName] = useState(false);
+
+  const handleNameSave = () => {
+    setIsEditingName(false);
+    localStorage.setItem('user_name', userName);
+  };
+
   return (
     <motion.div 
       initial={{ opacity: 0, y: 30 }}
@@ -35,12 +44,26 @@ export default function Profile() {
                 className="absolute inset-[-10px] rounded-full border-2 border-dashed border-red-200"
               />
               <div className="w-32 h-32 bg-gradient-to-tr from-red-600 via-red-500 to-orange-400 rounded-full mb-6 flex items-center justify-center text-white text-6xl font-black shadow-[0_15px_35px_rgba(239,68,68,0.4)] relative z-10">
-                {userId.toString().charAt(0).toUpperCase()}
+                {userName.charAt(0).toUpperCase()}
               </div>
             </div>
             
-            <h2 className="text-3xl font-black text-gray-900 mb-1 tracking-tight">Jane Doe</h2>
-            <p className="text-gray-500 font-bold mb-8 tracking-wide">+91 98765 43210</p>
+            {isEditingName ? (
+              <input 
+                autoFocus
+                type="text" 
+                value={userName} 
+                onChange={(e) => setUserName(e.target.value)}
+                onBlur={handleNameSave}
+                onKeyDown={(e) => e.key === 'Enter' && handleNameSave()}
+                className="text-3xl font-black text-gray-900 mb-1 tracking-tight text-center bg-gray-50 border border-gray-200 rounded-lg px-2 outline-none focus:border-red-400 w-full"
+              />
+            ) : (
+              <h2 onClick={() => setIsEditingName(true)} className="text-3xl font-black text-gray-900 mb-1 tracking-tight cursor-pointer hover:text-red-500 transition-colors" title="Click to edit">
+                {userName} <span className="text-sm opacity-50 ml-1">✏️</span>
+              </h2>
+            )}
+            <p className="text-gray-500 font-bold mb-8 tracking-wide">{userPhone}</p>
             
             <div className="w-full space-y-3 mb-8">
               <div className="bg-gray-50/50 p-5 rounded-[24px] flex justify-between items-center border border-gray-100 hover:bg-gray-50 transition-colors">

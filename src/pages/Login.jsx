@@ -50,6 +50,7 @@ function Login() {
       }
       const userId = res.data?.data?.user_id;
       localStorage.setItem("user_id", String(userId));
+      localStorage.setItem("user_phone", `+91 ${phone}`);
       
       toast.success("Authentication successful. Welcome to SliceMind.");
       navigate("/home");
@@ -57,6 +58,7 @@ function Login() {
       setTimeout(() => {
         if (otp === "1234" || otp.length === 4) {
           localStorage.setItem("user_id", "demo_user_123");
+          localStorage.setItem("user_phone", `+91 ${phone}`);
           toast.success("Demo Auth successful! Welcome.");
           navigate("/home");
         } else {
