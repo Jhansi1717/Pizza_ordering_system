@@ -1,0 +1,23 @@
+export const pizzaImagePool = [
+  "https://images.unsplash.com/photo-1601924582975-7e4c5f8b6b5e?auto=format&fit=crop&w=400&q=80",
+  "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=400&q=80",
+  "https://images.unsplash.com/photo-1548365328-9f547fb0953d?auto=format&fit=crop&w=400&q=80",
+  "https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?auto=format&fit=crop&w=400&q=80",
+  "https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?auto=format&fit=crop&w=400&q=80",
+  "https://images.unsplash.com/photo-1590947132387-155cc02f3212?auto=format&fit=crop&w=400&q=80",
+  "https://images.unsplash.com/photo-1620374645313-61c34c1d32c3?auto=format&fit=crop&w=400&q=80",
+  "https://images.unsplash.com/photo-1594007654729-407eedc4be65?auto=format&fit=crop&w=400&q=80",
+  "https://images.unsplash.com/photo-1603079849818-6d0f1b0c7e32?auto=format&fit=crop&w=400&q=80",
+  "https://images.unsplash.com/photo-1613145993483-4c4b1eabf9a3?auto=format&fit=crop&w=400&q=80",
+  "https://images.unsplash.com/photo-1588315029754-2dd089d39a1a?auto=format&fit=crop&w=400&q=80",
+  "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=400&q=80",
+  "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=400&q=80",
+  "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80",
+  "https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?auto=format&fit=crop&w=400&q=80",
+  "https://images.unsplash.com/photo-1565299507177-b0ac66763828?auto=format&fit=crop&w=400&q=80",
+  "https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=400&q=80",
+  "https://images.unsplash.com/photo-1585238342024-78d387fbf32d?auto=format&fit=crop&w=400&q=80",
+  "https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=400&q=80",
+  "https://images.unsplash.com/photo-1555072956-7758afb20e8f?auto=format&fit=crop&w=400&q=80",
+  "https://images.unsplash.com/photo-1628840042765-356cda07504e?auto=format&fit=crop&w=400&q=80"
+];
