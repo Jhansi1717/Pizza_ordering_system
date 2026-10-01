@@ -2,7 +2,7 @@
 
 A full-stack pizza ordering web application built with React 19 + Vite on the frontend and FastAPI + SQLAlchemy on the backend.
 
-> **Current scope:** This repository is a functional demo/coursework project. It does not currently provide real SMS OTP delivery, real payment processing, live driver/drone tracking, or an LLM-powered assistant.
+> **Current scope:** This is a functional demo/coursework project. It does not currently provide real SMS OTP delivery, real payment processing, live driver/drone tracking, or an LLM-powered assistant.
 
 ## What is implemented
 
@@ -76,7 +76,7 @@ When the pizza table is empty, the backend seeds five pizzas:
 | Veggie Delight | Thin Crust | 17 min | ₹229 |
 | BBQ Chicken | Pan | 22 min | ₹319 |
 
-The frontend also contains additional static pizza entries and combines them with API results for the menu UI.
+The frontend also contains additional static pizza entries and combines them with API results.
 
 ## Pizza customization
 
@@ -118,9 +118,9 @@ The active-order page also contains animated delivery visuals and an invoice act
 | BASIC | 2 pizzas | 7 days |
 | PRO | 5 pizzas | 7 days |
 
-Subscriptions are stored in the database. There is no external billing or payment gateway.
+There is no external billing or payment gateway.
 
-## Pre-orders and delivery slots
+## Pre-orders and scheduling
 
 - Pending pre-orders expire after 15 minutes.
 - A pre-order can be confirmed or cancelled.
@@ -130,13 +130,13 @@ Subscriptions are stored in the database. There is no external billing or paymen
 
 ## Recommendation engine
 
-The recommendation service is **rule-based**, not a machine-learning recommender.
+The recommendation service is **rule-based**, not a machine-learning model.
 
 It uses `order_created` events to prefer pizzas previously ordered by the user near the current UTC hour, then falls back to the most frequently ordered pizza globally and finally to the first pizza in the database.
 
 ## Chat assistant
 
-The backend assistant is **keyword based**. It currently handles three intent groups:
+The backend assistant is **keyword based**. It currently handles:
 
 | Intent | Keywords |
 |---|---|
@@ -182,7 +182,11 @@ No SMS provider, OTP expiry, rate limiting, or production identity verification 
 | GET | `/recommendation?user_id=...` | Get recommendation |
 | POST | `/chat/query` | Query assistant |
 
-When running locally, FastAPI interactive docs are available at `http://localhost:8000/docs`.
+When the backend is running locally, FastAPI interactive docs are available at:
+
+```text
+http://localhost:8000/docs
+```
 
 ## Run locally
 
@@ -192,7 +196,7 @@ When running locally, FastAPI interactive docs are available at `http://localhos
 python -m venv venv
 
 # Windows
-venv\Scripts\activate
+venv\\Scripts\\activate
 
 # macOS/Linux
 source venv/bin/activate
@@ -210,11 +214,13 @@ npm install
 npm run dev
 ```
 
-Vite normally serves the frontend at `http://localhost:5173`.
+Vite normally serves the frontend at:
 
-The frontend API base URL comes from `VITE_API_URL`; otherwise it defaults to `http://localhost:8000`.
+```text
+http://localhost:5173
+```
 
-Example:
+### Environment
 
 ```env
 DATABASE_URL=postgresql+psycopg2://...
@@ -231,9 +237,9 @@ The repository contains a Python `Procfile`:
 web: uvicorn app.main:app --host 0.0.0.0 --port 10000
 ```
 
-There is no provider-specific Render/Vercel/Netlify deployment configuration in this repository. The repository therefore does not claim a specific active cloud deployment.
+There is no provider-specific Render/Vercel/Netlify deployment configuration in this repository. The project documentation therefore does not claim a specific active cloud deployment.
 
-For a real production deployment, provision and validate a managed PostgreSQL database, real OTP delivery, payment processing, secure session management, HTTPS, monitoring, backups, rate limiting, and frontend/backend deployment configuration.
+For production use, additional infrastructure is required for real OTP delivery, payments, secure authentication/session management, monitoring, backups, rate limiting, and deployment-specific configuration.
 
 ## Security and production limitations
 
